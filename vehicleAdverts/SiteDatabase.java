@@ -18,16 +18,16 @@ import exceptions.AdvertException;
 import exceptions.MobileAccountException;
 
 public class SiteDatabase {
-	
+
 	Scanner sc = new Scanner(System.in);
-	
+
 	public static final String SITE_NAME = "Mobile.bg";
 	private static Long advertNumber = 1000000001L;
-	
-	private static Map<Long, Advert> adverts = Collections.synchronizedMap(new TreeMap<Long, Advert>()) ;
-	private Map<String, RegistredUser> registredUser = Collections.synchronizedMap(new TreeMap<String, RegistredUser>());
+
+	private static Map<Long, Advert> adverts = Collections.synchronizedMap(new TreeMap<Long, Advert>());
+	private Map<String, RegistredUser> registredUser = Collections
+			.synchronizedMap(new TreeMap<String, RegistredUser>());
 	private List<RegistredUser> admins = new ArrayList<RegistredUser>();
-	
 
 	public void addAdmin(RegistredUser admin) {
 		this.admins.add(admin);
@@ -39,19 +39,18 @@ public class SiteDatabase {
 	}
 
 	public void printAllRegistredUsers() {
-		for (RegistredUser user : registredUser.values()){
+		for (RegistredUser user : registredUser.values()) {
 			System.out.println(user.getMyAccount());
 		}
 	}
 
 	public void printAllAdverts() {
-		for (Entry<Long, Advert> advert : adverts.entrySet()){
+		for (Entry<Long, Advert> advert : adverts.entrySet()) {
 			System.out.println("Advert " + advert.getKey());
 			System.out.println(advert.getValue());
 		}
-		
-	}
 
+	}
 
 	public void addAccount(RegistredUser user) throws MobileAccountException {
 		ValidateData.checkThisAccount(user.getMyAccount());
@@ -65,5 +64,9 @@ public class SiteDatabase {
 	public void deleteThisAdvert(Long advertNumber) {
 		adverts.remove(advertNumber);
 	}
-	
+
+	public void deleteThisPhoto(long advertNumber, short photoNumber) {
+		adverts.get(advertNumber).getPhotos().remove(photoNumber - 1);
+	}
+
 }
