@@ -5,25 +5,30 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public abstract class RegistredUser extends VisitorsWithAccount {
-	
-	public RegistredUser(String name, String email, String phoneNumber, String password) {
-		super(name, email, phoneNumber, password);
+import exceptions.AdvertException;
+
+public abstract class RegistredUser {
+
+	private SiteDatabase mySite;
+	private Account myAccount;
+	private List<Advert> myAdverts = new ArrayList<Advert>();
+
+	public RegistredUser(SiteDatabase mySite, Account myAccount) {
+		this.mySite = mySite;
+		this.myAccount = myAccount;
 	}
 
-	public void printMyAdverts(){
-		for (Advert advert : myAdverts()){
-			System.out.println(advert);
-		}
+	public Account getMyAccount() {
+		return myAccount;
 	}
-	
-	private Set<Advert> myAdverts(){
-		return SiteDatabase.getMyAdverts(super.getEmail());
+
+	public void createAdvert(Advert advert) throws AdvertException {
+		mySite.addAdvert(advert);
+		myAdverts.add(advert);
 	}
-	
-	public void newAdvert(Advert advert, SiteDatabase mobileBG){
-		Admin admin = mobileBG.getAdmin();
-		admin.checkThisAdvert(advert);
+
+	public SiteDatabase getMySite() {
+		return mySite;
 	}
 
 }

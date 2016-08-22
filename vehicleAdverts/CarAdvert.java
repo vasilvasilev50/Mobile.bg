@@ -1,10 +1,9 @@
 package vehicleAdverts;
 
-public abstract class CarAdvert extends Advert {
+public class CarAdvert extends Advert {
 
-	public CarAdvert(String typeOfVehicle, String brand, String model, int year, double price) {
-		super(typeOfVehicle, brand, model, year, price);
-		// TODO Auto-generated constructor stub
+	public CarAdvert(RegistredUser owner, String brand, String model, int year, int price) {
+		super(owner, "Car", brand, model, year, price);
 	}
 
 }

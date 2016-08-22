@@ -1,20 +1,18 @@
 package vehicleAdverts;
 
-public class Admin extends VisitorsWithAccount{
+public class Admin extends RegistredUser {
 
-	public Admin(String name, String email, String phoneNumber, String password) {
-		super(name, email, phoneNumber, password);
+	public Admin(SiteDatabase mySite, Account myAccount) {
+		super(mySite, myAccount);
 	}
 	
-	public RegistredUser checkThisAccount(String name, String email, String phoneNumber, String password) {
-		//TODO check user data
-		return new PrivateUser(name, email, phoneNumber, password);
-	}
-
-	public Advert checkThisAdvert(Advert advert) {
-		// TODO check advert data
-		return advert;
+	public void deleteUsers (String email) {
+		super.getMySite().deleteThisUser(email);
 	}
 	
+	public void deleteAdvert (Long advertNumber) {
+		super.getMySite().deleteThisAdvert(advertNumber);
+		System.out.println("Advert number " + advertNumber + " has been deleted!");
+	}
 
 }

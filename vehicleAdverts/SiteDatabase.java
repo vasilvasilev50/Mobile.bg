@@ -1,8 +1,10 @@
 package vehicleAdverts;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
@@ -10,60 +12,58 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import javax.management.relation.RelationServiceNotRegisteredException;
+
+import exceptions.AdvertException;
+import exceptions.MobileAccountException;
+
 public class SiteDatabase {
 	
 	Scanner sc = new Scanner(System.in);
 	
 	public static final String SITE_NAME = "Mobile.bg";
-	private static long advertNumber;
+	private static Long advertNumber = 1000000001L;
 	
-	private static Map<Integer, Advert> adverts = new TreeMap<Integer, Advert>();
-	private Map<String, RegistredUser> registredusers = new TreeMap<String, RegistredUser>();
-	private List<Admin> admins = new ArrayList<Admin>();
+	private static Map<Long, Advert> adverts = Collections.synchronizedMap(new TreeMap<Long, Advert>()) ;
+	private Map<String, RegistredUser> registredUser = Collections.synchronizedMap(new TreeMap<String, RegistredUser>());
+	private List<RegistredUser> admins = new ArrayList<RegistredUser>();
 	
-	static Set<Advert> getMyAdverts(String email) {
-		return (Set<Advert>) SiteDatabase.adverts.get(email);
-	}
 
-	public void addAdmin(Admin admin) {
+	public void addAdmin(RegistredUser admin) {
 		this.admins.add(admin);
 	}
 
-	public void createNewAccount(String name, String email, String phoneNumber, String password) {
-//		Admin adminOnWork = admins.get(new Random().nextInt(admins.size()));
-//		RegistredUser newUser = adminOnWork.checkThisAccount(name, email, phoneNumber, password);
-//		if (newUser != null) {
-//			this.registredusers.put(newUser.getEmail(), newUser);
-//		} else {
-//			System.out.println("Popylneni sa nevalidni danni za account! ");
-//		}
-	}
-
-	public void createNewAdvert(Advert advert) {
-			adverts.put(advert.hashCode(), advert);
+	public void addAdvert(Advert advert) throws AdvertException {
+		ValidateData.checkThisAdvert(advert);
+		adverts.put(advertNumber++, advert);
 	}
 
 	public void printAllRegistredUsers() {
-		for (RegistredUser user : registredusers.values()){
-			System.out.println(user);
+		for (RegistredUser user : registredUser.values()){
+			System.out.println(user.getMyAccount());
 		}
 	}
 
 	public void printAllAdverts() {
-		for (Advert advert : adverts.values()){
-			System.out.println(advert);
+		for (Entry<Long, Advert> advert : adverts.entrySet()){
+			System.out.println("Advert " + advert.getKey());
+			System.out.println(advert.getValue());
 		}
 		
 	}
 
-	public void search() {
-		System.out.println("Izberete marka");
-		String brand = sc.next();
-		
+
+	public void addAccount(RegistredUser user) throws MobileAccountException {
+		ValidateData.checkThisAccount(user.getMyAccount());
+		registredUser.put(user.getMyAccount().getEmail(), user);
 	}
 
-	public Admin getAdmin() {
-		return admins.get(new Random().nextInt(admins.size()));
+	public void deleteThisUser(String email) {
+		registredUser.remove(email);
+	}
+
+	public void deleteThisAdvert(Long advertNumber) {
+		adverts.remove(advertNumber);
 	}
 	
 }
