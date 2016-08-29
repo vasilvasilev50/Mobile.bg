@@ -1,6 +1,51 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic);
 
-body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
+
+body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px;}
+#container {margin-left: 80px;margin-right: 80px; margin-bottom: 50px;}
+#header-top{display: inline-block; width: 100%}
+#text-top {
+  width: 500px;
+  padding-right: 2px;
+  margin-right: 2px;
+  float: left;
+  margin-bottom: 15px;
+}
+#modal_trigger {
+  margin:14px 96px 1px 1px;
+  width:115px;
+  float: right;
+}
+section {
+  display: inline-block;
+  width: 100%
+}
+#search-box {
+  border: 2px solid #8bc34a;
+  width: 238px;
+  padding: 10px 2px 20px 20px;
+  margin-top: 20px;
+  float: left;
+}
+#reklama-box {
+  padding-top: 10px;
+  padding-right: 750px;
+  width:215px;
+  float: right;
+}
+#reklama-box p {
+  width: 300px;
+  margin-left: 200px;
+  font-weight: bold;
+}
+#refer-to-search a {
+  color: #8bc34a;
+}
+footer {
+  font-size: 0.8em;
+  display: inline-block !important;
+  width: 100%
+}
 
 #lean_overlay {
     position: fixed;
@@ -22,8 +67,6 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 	background: #FFF;
 }
 
-#modal_trigger {margin:100px auto; width:100px; display:block;}
-
 .btn {padding:10px 20px; background: #F4F4F2;}
 .btn_red {background: #ED6347; color: #FFF;}
 
@@ -43,11 +86,10 @@ a.btn_red {color: #FFF;}
 
 .popupBody {padding:20px;}
 
-
 /* Social Login Form */
 .social_login {}
 .social_login .social_box {display:block; clear:both; padding:10px; margin-bottom: 10px; background: #F4F4F2; overflow: hidden;}
-.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;} 
+.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;}
 .social_login .fb .icon {background:#3B5998;}
 .social_login .google .icon {background:#DD4B39;}
 .social_login .icon_title {display:block; padding:5px 0; float:left; font-weight: bold; font-size: 16px; color:#777;}
