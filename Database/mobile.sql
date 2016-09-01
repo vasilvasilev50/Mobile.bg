@@ -1,0 +1,1 @@
+SELECT * FROM mobile_schema.models;
