@@ -1,0 +1,258 @@
+﻿<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <!-- <link rel="stylesheet" href="in.css"> -->
+    <body class="w3-container">
+    <title>Welcome to VZmobile</title>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <img src="logo.png" alt="VZmobile" style="width:220px;height:124px;">
+      <div id="header-top">
+        <h2 id="text-top">Сайт №1 в света за автообяви</h2>
+        <a id="modal_trigger" href="#modal" class="button split" ;><button class="w3-btn w3-dark-grey">Влизане / Регистрация</button></a>
+        <div align ="center"; id="modal" class="popupContainer" style="display:none;">
+              <header class="popupHeader">
+              <span class="header_title">Влизане</span>
+              <span class="modal_close"><i class="fa fa-times"></i></span>
+            </header>
+        <section class="popupBody">
+              <!-- Social Login -->
+              <div class="social_login">
+                <div class="">
+                  <a href="#" class="social_box fb">
+                    <span class="icon"><i class="fa fa-facebook"></i></span>
+                    <span class="icon_title">Свържете се с Facebook</span>
+                  </a>
+                  <a href="#" class="social_box google">
+                    <span class="icon"><i class="fa fa-google-plus"></i></span>
+                    <span class="icon_title">Свържете се с Google</span>
+                  </a>
+                </div>
+                <div class="action_btns">
+                  <div class="one_half"><a href="#" id="login_form" class="btn">Влизане</a></div>
+                  <div class="one_half last"><a href="#" id="register_form" class="btn">Регистрация</a></div>
+                </div>
+              </div>
+
+              <!-- Username & Password Login form -->
+              <div class="user_login">
+                <form>
+                  <label>Имейл / потребителско име</label>
+                  <input type="text" />
+                  <br />
+
+                  <label>Парола</label>
+                  <input type="password" />
+                  <br />
+
+                  <div class="checkbox">
+                    <input id="remember" type="checkbox" />
+                    <label for="remember">Запомни ме на този компютър</label>
+                  </div>
+
+                  <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Назад</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Влизане</a></div>
+                  </div>
+                </form>
+                <a href="#" class="forgot_password">Забравена парола?</a>
+              </div>
+
+              <!-- Register Form -->
+              <div class="user_register">
+                <form>
+                  <label>Име</label>
+                  <input type="text" />
+                  <br />
+                  <label>Имейл адрес</label>
+                  <input type="email" />
+                  <br />
+                  <label>Парола</label>
+                  <input type="password" />
+                  <br />
+
+                  <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Назад</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Регистрация</a></div>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
+        <script type="text/javascript">
+                      $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+
+                      $(function(){
+                        // Calling Login Form
+                        $("#login_form").click(function(){
+                          $(".social_login").hide();
+                          $(".user_login").show();
+                          return false;
+                        });
+
+                        // Calling Register Form
+                        $("#register_form").click(function(){
+                          $(".social_login").hide();
+                          $(".user_register").show();
+                          $(".header_title").text('Регистрация');
+                          return false;
+                        });
+
+                        // Going back to Social Forms
+                        $(".back_btn").click(function(){
+                          $(".user_login").hide();
+                          $(".user_register").hide();
+                          $(".social_login").show();
+                          $(".header_title").text('Влизане');
+                          return false;
+                        });
+
+                      })
+                    </script>
+      </div>
+      <nav>
+        <ul class="w3-navbar w3-light-green w3-border">
+              <li id="test" style=" width:8%;">
+                  <a href="index.html">
+                      <center>Начало</center>
+                  </a>
+              </li>
+              <li style="width:15%">
+                  <a href="publish.html">
+                      <center>Публикуване</center>
+                  </a>
+              </li>
+              <li style="width:15%">
+                  <a href="search.html">
+                      <center>Търсене</center>
+                  </a>
+              </li>
+              <li style="width:15%">
+                  <a href="http://fakti.bg/avto">
+                      <center>Новини</center>
+                  </a>
+              </li>
+              <li style="width:15%">
+                  <a href="my_adverts.html">
+                      <center>Моите обяви</center>
+                  </a>
+              </li>
+              <li style="width:25%">
+                  <input type="text" class="w3-input w3-border-2" placeholder="Търсене...">
+              </li>
+          </ul>
+      </nav>
+    </header>
+    <br>
+    <section>
+      <div class="advanced-box" id="advanced-search-box">
+        <table class="table" name"advanced-search-table" cellspacing="2" cellpadding="5">
+            <caption><h4><strong>Търсене във VZ mobile</strong></h4></caption>
+              <form class="Forms" action="" method="get">
+                <tr>
+                    <th class="sw220" align="left"><label for="vehicle-type">Основна Категория</label></th>
+                    <th class="sw220" align="left"><label for="year">Година</label></th>
+                    <th colspan="2" class="sw220" align="left"><label for="price">Цена:</label></th>
+                    <td align="left"><input type="checkbox" name="nov-vnos" id="nov-vnos" value="1" width=""></td>
+                    <th align="left"><label for="nov-vnos">Нов внос</label></th>
+                </tr>
+                <tr>
+                    <td align="left">
+                      <select class="sw150" name="vehicle-type" id="vehicle-type">
+                        <option value="1">Автомобили</option>
+                        <option value="2">Камиони</option>
+                        <option value="3">Мотори</option>
+                      </select></td>
+                    <td align="left"><input class="sw150" type="year" name="year" id="year" value=" от / до"></td>
+                    <td width="162px" align="left"><input class="sw150" type="text" name="price" value=" от / до"></td>
+                    <td width="72px" align="left">лв.</td>
+                    <td align="left"><input type="checkbox" name="gazova-uredba" id="gazova-uredba" value="1"></td>
+                    <th align="left"><label for="gazova-uredba">Газова уредба</label></th>
+                </tr>
+                <tr>
+                    <th align="left">Марка</th>
+                    <th align="left"><label for="engine-type">Тип двигател</label></th>
+                    <th colspan="2" align="left"><label for="power">Мощност:</label></th>
+                    <td align="left"><input type="checkbox" name="4x4" id="4x4" value="1"></td>
+                    <th align="left"><label for="4x4">4x4</label></th>
+                </tr>
+                <tr>
+                    <td align="left"><label for="brand"></label>
+                      <select class="sw150" name="brand" id="brand">
+                        <option value="1">Всички</option>
+                      </select></td>
+                    <td align="left"><select class="sw150" name="engine-type" id="engine-type">
+                      <option></option>
+                      <option value="1">Бензинов</option>
+                      <option value="2">Дизелов</option>
+                    </select></td>
+                    <td align="left"><input class="sw150" type="text" name="power" id="power" value="от / до"></td>
+                    <td align="left">(к.с.)</td>
+                    <td align="left"><input type="checkbox" name="metalic" id="metalic" value="1"></td>
+                    <th align="left"><label for="metalic">Металик</label></th>
+                </tr>
+                <tr>
+                    <th align="left">Модел</th>
+                    <th align="left"><label for="max-km">Макс.пробег в км</label></th>
+                    <th colspan="2" align="left"><label for="district">Регион</label></th>
+                    <td align="left"><input type="checkbox" name="leti-djanti" id="leti-djanti" value="1"></td>
+                    <th align="left"><label for="leti-djanti">Лети джанти</label></th>
+                </tr>
+                <tr>
+                    <td align="left">
+                      <label for="model"></label>
+                      <select class="sw150" name="model" id="model">
+                        <option value="1">Всички</option>
+                      </select></td>
+                    <td align="left"><select class="sw150" name="max-km" id="max-km">
+                      <option></option>
+                      <option value="1">до 50000</option>
+                      <option value="2">до 100000</option>
+                      <option value="3">до 200000</option>
+                      <option value="4">над 200000</option>
+                    </select></td>
+                    <td colspan="2" align="left" ><select class="sw150" name="district" id="district">
+                      <option></option>
+                      <option value="1">София</option>
+                      <option value="2">Пловдив</option>
+                      <option value="3">Варна</option>
+                      <option value="4">Хасково</option>
+                    </select></td>
+                    <td align="left"><input type="checkbox" name="desen-volan" id="desen-volan" value="1"></td>
+                    <th align="left"><label for="desen-volan">Десен волан</label></th>
+
+                </tr>
+                <tr>
+                    <td align="center"></td>
+                    <td height="80px" padding-bottom="0px" align="right" colspan="5"><input type="submit" value="търси"></td>
+                </tr>
+              </form>
+        </table>
+      </div>
+    </section>
+    <footer>
+      <br>
+      <hr style="height:1px;border-width:0;background-color:#8bc34a">
+      </p>
+      <pre>
+VZ mobile препоръчва: Преводи  Легализация  nekretnine  imobiliare  Polovni automobili  Фото Форум  Ремонт на покриви  bgfactor.org Книжен пазар  БГ общество  Предавател
+Автомобили  BGSTUFF.NET  ams.bg  Ремонтиране на покриви  novinar.net  moitepari.bg  Кредити автомобили  Имоти Варна  Имоти Русе  Имоти София  Имоти Бургас  Имоти Пловдив
+Имоти Плевен  Имоти Стара Загора  Автомобили  Bulgaria Flowers Delivery  CASHTERMINAL  Дрехи  Справочник за образованието  Sofia Flowers Delivery  Части
+kachestveni-pokrivi.com  Probook  Новини Доставка на цветя в България  www.SEOM.bg  Доставка на цветя в София  Курсове и Обучение  Авточасти
+ЗА КОНТАКТИ |  ОБЯВИ |  SMS КОДОВЕ |  ЗА РЕКЛАМА |  ПОМОЩ |  ОБЩИ УСЛОВИЯ |  ТОП ОФЕРТА	Въпроси и предложения към VZ mobile
+      </pre>
+    </footer>
+  </div>
+</body>
+
+</html>
