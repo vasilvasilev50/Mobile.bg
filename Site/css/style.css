@@ -11,6 +11,28 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px;}
   float: left;
   margin-bottom: 15px;
 }
+
+optgroup {
+    color: black;
+    font-weight: bold;
+    font-style: normal;
+    padding: 3px 0 0 0;
+    text-align: center;
+}
+
+optgroup option {
+    background-color: white;
+    color: #000000;
+    padding: 2 0 0 1em;
+    text-align: center;
+}
+
+.ImageBorder
+{
+    border-width: 2px;
+    border-color: #8bc34a;
+}
+
 #modal_trigger {
   margin:14px 96px 1px 1px;
   width:115px;
@@ -102,13 +124,13 @@ footer {
 	background: #FFF;
 }
 
-.btn {padding:10px 20px; background: #F4F4F2;}
-.btn_red {background: #ED6347; color: #FFF;}
+.btn {padding:10px 20px; background: #8bc34a;}
+.btn_red {background: gray; color: #FFF;}
 
-.btn:hover {background: #E4E4E2;}
-.btn_red:hover {background: #C12B05;}
+.btn:hover {background: darkgray;}
+.btn_red:hover {background: #8bc34a;}
 
-a.btn {color:#666; text-align: center; text-decoration: none;}
+a.btn {color:white; text-align: center; text-decoration: none;}
 a.btn_red {color: #FFF;}
 
 .one_half {width:50%; display: block; float:left;}
