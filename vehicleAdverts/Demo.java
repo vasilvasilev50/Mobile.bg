@@ -27,15 +27,6 @@ public class Demo {
 //		admin1.deleteUsers("pesho@abv.bg");
 		mobileBG.printAllRegistredUsers();
 		
-		try {
-			user1.createAdvert(new CarAdvert(user1, "BMW", "Series5", 2014, 200));
-			user1.createAdvert(new CarAdvert(user1, "BMW", "Series3", 2010, 10000));
-			user2.createAdvert(new CarAdvert(user2, "Porshe", "cabrio", 2016, 45200));
-			user2.createAdvert(new CarAdvert(user2, "Opel", "vectra", 2000, 1200));
-			user3.createAdvert(new CarAdvert(user3, "Toyota", "Supra", 2013, 4200));
-		} catch (AdvertException e) {
-			System.out.println(e.getMessage());
-		}
 		
 //		admin1.deleteAdvert(1000000001L);
 		mobileBG.printAllAdverts();
