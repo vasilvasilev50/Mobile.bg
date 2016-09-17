@@ -12,6 +12,14 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px;}
   margin-bottom: 15px;
 }
 
+#model option{
+    display:none;
+}
+
+#model option.label{
+    display:block;
+}
+
 optgroup {
     color: black;
     font-weight: bold;

@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/navigation.css">
-    <script src="jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<script>$(function(){
+    <script>$(function(){
 
     var $cat = $("#brand"),
         $subcat = $("#model");
@@ -25,16 +23,6 @@
     });
 
 });</script>
-<style>
-#model option{
-    display:none;
-}
-
-#model option.label{
-    display:block;
-}
-
-</style>
     <!-- <link rel="stylesheet" href="in.css"> -->
     <body class="w3-container">
     <title>Welcome to VZmobile</title>
@@ -176,7 +164,7 @@
                       <center>Моите обяви</center>
                   </a>
               </li>
-              <li style="width:25%">
+              <li style="width:20%">
                   <input type="text" class="w3-input w3-border-2" placeholder="Търсене...">
               </li>
           </ul>
@@ -190,9 +178,11 @@
             <label for="district"></label>
             <p>Регион</p>
             <select class="" name="district" id="district">
+              <optgroup label="Изберете регион:">
               <option value="100">Всички</option>
               <option value="1">София</option>
-              <optgroup label="">
+                <optgroup label="A">
+              <option value="48">Асеновград</option>
                 <optgroup label="Б">
               <option value="2">Благоевград</option>
               <option value="3">Бургас</option>
@@ -289,8 +279,8 @@
             <label for="model"></label>
             <p>Модел</p>
             <select class="" name="model" id="model">
-              <option rel="100" value="100">Всички</option>
               <optgroup label="Модел:">
+              <option rel="100" value="100">Всички</option>
               <option rel="1" value="1">80</option>
               <option rel="1" value="2">A3</option>
               <option rel="1" value="3">А4</option>
@@ -438,7 +428,6 @@
               <option value="1981">1981</option>
               <optgroup label="Антики - 80'">
               <option value="1979">Всички по-стари</option>
-
             </select>
             <p id="refer-to-search">
               <br>
